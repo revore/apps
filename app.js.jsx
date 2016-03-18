@@ -1,14 +1,30 @@
+var Site = React.createClass({
+  render: function() {
+    var link = "http://" + this.props.site.stub + ".paulmckellar.com"
+    return (
+      <div>
+        <h2>
+          <a href={ link }>
+            { this.props.site.name }
+          </a>
+        </h2>
+      </div>
+    );
+  }
+})
+
+
 var AppList = React.createClass({
 
   getInitialState: function() {
     return ({
-      apps: [],
+      sites: [],
     });
   },
 
   render: function() {
-    var appNodes = this.props.apps.map(function(story) {
-      return <div>{ story.name }</div>;
+    var appNodes = this.props.sites.map(function(site) {
+      return <Site site={site} />;
     });
 
     return (
@@ -23,7 +39,7 @@ var App = React.createClass({
 
   getInitialState: function() {
     return ({
-      apps: [],
+      sites: [],
     });
   },
 
@@ -33,19 +49,18 @@ var App = React.createClass({
     $.ajax({
       url: "/i/sites",
       dataType: "json",
-      success: function( apps ) {
+      success: function( sites ) {
         t.setState({
-          apps: apps
+          sites: sites
         })
       }
     });
   },
 
   render: function() {
-    var apps = this.state.apps;
-    console.log(apps);
+    var sites = this.state.sites;
     return (
-      <AppList apps={apps} />
+      <AppList sites={sites} />
     );
   },
 });
