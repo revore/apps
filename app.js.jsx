@@ -2,17 +2,18 @@ var Site = React.createClass({
   render: function() {
     var link = "http://" + this.props.site.stub + ".paulmckellar.com"
     return (
-      <div>
-        <h2>
-          <a href={ link }>
-            { this.props.site.name }
-          </a>
-        </h2>
+      <div className="row site-row">
+        <div className="col-sm-6 col-sm-offset-3">
+          <h2>
+            <a href={ link }>
+              { this.props.site.name }
+            </a>
+          </h2>
+        </div>
       </div>
     );
   }
 })
-
 
 var AppList = React.createClass({
 
