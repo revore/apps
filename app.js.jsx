@@ -4,12 +4,14 @@ var Site = React.createClass({
     return (
       <a href={ link }>
         <div className="site-row col-xs-12 col-md-6 col-md-offset-3">
-          <h2>
-            { this.props.site.name }
-          </h2>
-          <p>
-            { this.props.site.domain }
-          </p>
+          <div className="overlay">
+            <h2>
+              { this.props.site.name }
+            </h2>
+            <p>
+              { this.props.site.domain }
+            </p>
+          </div>
           <iframe src={ link }></iframe>
         </div>
       </a>
