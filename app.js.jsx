@@ -28,14 +28,14 @@ var SiteList = React.createClass({
   },
 
   render: function() {
-    var appNodes = this.props.sites.map(function(site) {
+    var siteNodes = this.props.sites.map(function(site) {
       return <Site site={site} />;
     });
 
     return (
       <div className="container">
       <div className="row">
-        {appNodes}
+        {siteNodes}
         </div>
       </div>
     );
