@@ -28,7 +28,11 @@ var SiteList = React.createClass({
   },
 
   render: function() {
-    var siteNodes = this.props.sites.map(function(site) {
+
+    var sites = _.filter(this.props.sites, function(site) {
+      return site.name.toLowerCase() != "apps";
+    });
+    var siteNodes = sites.map(function(site) {
       return <Site site={site} />;
     });
 
