@@ -19,7 +19,7 @@ var Site = React.createClass({
   }
 })
 
-var AppList = React.createClass({
+var SiteList = React.createClass({
 
   getInitialState: function() {
     return ({
@@ -67,7 +67,7 @@ var App = React.createClass({
   render: function() {
     var sites = this.state.sites;
     return (
-      <AppList sites={sites} />
+      <SiteList sites={sites} />
     );
   },
 });
