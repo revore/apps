@@ -3,14 +3,16 @@ var Site = React.createClass({
     var link = "http://" + this.props.site.domain;
     return (
       <a href={ link }>
-        <div className="site-row col-xs-12 col-md-6 col-md-offset-3">
+        <div className="site-row col-xs-12">
           <div className="overlay">
-            <h2>
-              { this.props.site.name }
-            </h2>
-            <p>
-              { this.props.site.domain }
-            </p>
+            <div className="title">
+              <h2>
+                { this.props.site.name }
+              </h2>
+              <p>
+                { this.props.site.domain }
+              </p>
+            </div>
           </div>
           <iframe src={ link }></iframe>
         </div>
@@ -38,8 +40,12 @@ var SiteList = React.createClass({
 
     return (
       <div className="container">
-      <div className="row">
-        {siteNodes}
+        <div className="row">
+          <div className='col-xs-8 col-xs-offset-2'>
+            <div className="row">
+              {siteNodes}
+            </div>
+          </div>
         </div>
       </div>
     );
