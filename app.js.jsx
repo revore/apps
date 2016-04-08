@@ -1,16 +1,18 @@
 var Site = React.createClass({
   render: function() {
-    var link = "http://" + this.props.site.stub + ".paulmckellar.com"
+    var link = "http://" + this.props.site.domain;
     return (
-      <div className="row site-row">
-        <div className="col-sm-6 col-sm-offset-3">
+      <a href={ link }>
+        <div className="site-row col-xs-12 col-md-6 col-md-offset-3">
           <h2>
-            <a href={ link }>
-              { this.props.site.name }
-            </a>
+            { this.props.site.name }
           </h2>
+          <p>
+            { this.props.site.domain }
+          </p>
+          <iframe src={ link }></iframe>
         </div>
-      </div>
+      </a>
     );
   }
 })
@@ -30,7 +32,9 @@ var AppList = React.createClass({
 
     return (
       <div className="container">
+      <div className="row">
         {appNodes}
+        </div>
       </div>
     );
   },
@@ -48,7 +52,7 @@ var App = React.createClass({
     var t = this;
 
     $.ajax({
-      url: "/i/sites",
+      url: "/i/sites.json",
       dataType: "json",
       success: function( sites ) {
         t.setState({
